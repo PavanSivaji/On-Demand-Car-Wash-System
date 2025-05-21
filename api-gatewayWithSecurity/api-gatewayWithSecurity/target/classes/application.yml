@@ -1,0 +1,36 @@
+eureka:
+    client:
+      service-url:
+        defaultZone: http://localhost:8761/eureka
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: Security
+          uri: lb://SECURITY
+          predicates:
+            - Path=/security/**
+          filters:
+            - AuthenticationFilter
+ 
+        - id: user-service
+          uri: lb://USERMANAGEMENTSYSTEM
+          predicates:
+            - Path=/user/**
+          filters:
+            - AuthenticationFilter
+ 
+        - id: washer-service
+          uri: lb://WASHERMANAGEMENTSERVICE
+          predicates:
+            - Path=/washer/**
+          filters:
+            - AuthenticationFilter
+ 
+        - id: B-R-service
+          uri: lb://B-RSERVICE
+          predicates:
+            - Path=/booking/**
+            - Path=/order/**
+          filters:
+            - AuthenticationFilter
