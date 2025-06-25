@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap');
+
+:root {
+  --teal: #5ec6c6;
+  --teal-dark: #3bb3b3;
+  --peach: #f7bfa0;
+  --peach-light: #f9d6c1;
+  --yellow: #f7d86a;
+  --offwhite: #f8f8f8;
+  --blue: #bfe3e3;
+  --dark: #2e3a3a;
+}
+
+/* Allow vertical scrolling */
+html, body {
+  overflow-y: auto;
+  overflow-x: hidden; /* Add this line to hide horizontal scrollbars */
+}
+.register-bg {
+  min-height: 100vh;
+  background: linear-gradient(120deg, var(--blue) 0%, var(--offwhite) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-form {
+  background: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(94, 198, 198, 0.10);
+  width: 100%;
+  max-width: 400px;
+  font-family: 'Roboto', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.register-title {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--teal-dark);
+  margin-bottom: 1rem;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.register-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.register-field label {
+  font-weight: 500;
+  color: var(--dark);
+  margin-bottom: 0.1rem;
+}
+
+/* Hide the Role label if present */
+.register-field label[for="role"],
+.register-field label:has(+ .register-radio-group) {
+  display: none;
+}
+
+/* Input fields: darker background and visible text */
+.register-field input,
+.register-field select {
+  padding: 0.6rem 0.8rem;
+  border: 1.5px solid var(--blue);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Roboto', Arial, sans-serif;
+  background: #e0f7fa;
+  color: #222;
+  transition: border 0.2s, background 0.2s, color 0.2s;
+}
+
+.register-field input:focus,
+.register-field select:focus {
+  border: 1.5px solid var(--teal-dark);
+  background: #bfe3e3;
+  color: #111;
+  outline: none;
+}
+
+.register-error {
+  color: #e57373;
+  font-size: 0.95rem;
+  margin-top: 0.1rem;
+}
+
+.register-btn {
+  margin-top: 1rem;
+  background: linear-gradient(90deg, var(--teal) 60%, var(--yellow) 100%);
+  color: #fff;
+  padding: 0.9rem 2rem;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 16px rgba(94, 198, 198, 0.13);
+  transition: background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  outline: none;
+  display: inline-block;
+}
+
+.register-btn:hover, .register-btn:focus {
+  background: var(--peach);
+  color: var(--dark);
+  border: 2px solid var(--teal-dark);
+  transform: scale(1.04);
+  box-shadow: 0 8px 32px rgba(94, 198, 198, 0.18);
+}
+
+/* Custom radio button styles */
+.register-radio-group {
+  display: flex;
+  gap: 1rem; /* Decreased gap */
+  margin-top: 0.3rem;
+}
+
+/* Custom radio group: highlight selected option clearly */
+.register-radio-group label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0.3rem 0.8rem 0.3rem 1.5rem; /* Smaller padding */
+  border-radius: 0.9rem; /* Smaller radius */
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--teal-dark);
+  font-size: 1rem; /* Slightly smaller font */
+  user-select: none;
+  min-height: 1.6rem; /* Smaller height */
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, border 0.2s;
+  border: 2px solid transparent;
+  background: transparent;
+}
+
+.register-radio-group label.selected {
+  background: var(--teal); /* Plain color, no gradient */
+  color: var(--dark);
+  font-weight: bold;
+  border: 2px solid var(--teal-dark);
+  box-shadow: 0 2px 12px rgba(94,198,198,0.10);
+}
+
+.register-radio-group input[type="radio"] {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.1rem; /* Smaller radio */
+  height: 1.1rem;
+  margin: 0;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.register-radio-group label .custom-radio {
+  position: absolute;
+  left: 0.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1rem; /* Smaller custom radio */
+  height: 1rem;
+  border-radius: 50%;
+  border: 2px solid var(--teal-dark);
+  background: var(--offwhite);
+  box-shadow: 0 2px 8px rgba(94, 198, 198, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.register-radio-group input[type="radio"]:checked ~ .custom-radio {
+  border: 2px solid var(--teal);
+  box-shadow: 0 0 0 2px var(--yellow, #f7d86a);
+}
+
+.register-radio-group input[type="radio"]:checked ~ .custom-radio::after {
+  content: "";
+  display: block;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--yellow); /* Plain color for checked dot */
+  box-shadow: 0 0 6px var(--teal, #5ec6c6);
+}
+
+.register-radio-group label span {
+  margin-left: 0.5rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  position: relative;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+.register-radio-group label.selected span {
+  color: var(--dark);
+  font-weight: bold;
+}
+
+/* Remove old checked span style */
+.register-radio-group input[type="radio"]:checked ~ span {
+  color: inherit;
+  font-weight: inherit;
+}

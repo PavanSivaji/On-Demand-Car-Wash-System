@@ -1,0 +1,46 @@
+.booking-dashboard-container {
+  max-width: 500px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px #b3e5fc33;
+  padding: 2rem;
+}
+
+.booking-dashboard-title {
+  color: #185a9d;
+  margin-bottom: 1.5rem;
+}
+
+.booking-dashboard-form input {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 8px;
+  border: 1px solid #b3e5fc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.booking-dashboard-form button {
+  width: 100%;
+  padding: 12px;
+  background: #43cea2;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.booking-dashboard-form button:hover {
+  background: #185a9d;
+}
+
+.booking-dashboard-thankyou {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 2rem;
+  color: #0097a7;
+}
